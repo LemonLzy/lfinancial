@@ -1,4 +1,6 @@
 import random
+import re
+import string
 
 
 class IDCodeGenerator:
@@ -7,6 +9,7 @@ class IDCodeGenerator:
         self.default_country = {
             "SSN": "US",
             "IDCard": "CN",
+            "Passport": "CN"
             # 其他证件类型和默认国家的映射关系
         }
 
@@ -106,8 +109,18 @@ class IDCard(DocumentType):
 
 class Passport(DocumentType):
     def generate_id(self):
-        # 根据国家代码生成护照号码的逻辑
-        # ...
-        pass
+        match self.country:
+            case "CN":
+                return self._generate_cn_passport()
+            case _:
+                raise ValueError(f"Unsupported country: {self.country} for IDCard generation.")
 
-# 其他证件类型的子类...
+    def _generate_cn_passport(self):
+        """
+        中国普通护照 (电子护照)E开头+8位数字 或 E+字母+7位数字 (E12345678/ED1234567)
+        """
+        first = "E"
+        second = random.choice(string.ascii_uppercase + string.digits)
+        other = random.randint(0000000, 9999999)
+
+        return f"{first}{second}{other}"

@@ -14,3 +14,6 @@ if __name__ == '__main__':
     print(f.id_code('SSN', 'US'))
     print(f.id_code('IDCard'))
     print(f.id_code('IDCard', 'CN'))
+    print(f.id_code('IDCard', 'CN'))
+    print(f.id_code('Passport'))
+    print(f.id_code('Passport', 'CN'))

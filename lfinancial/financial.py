@@ -12,3 +12,5 @@ if __name__ == '__main__':
     f = Financial()
     print(f.id_code('SSN'))
     print(f.id_code('SSN', 'US'))
+    print(f.id_code('IDCard'))
+    print(f.id_code('IDCard', 'CN'))

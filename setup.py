@@ -7,7 +7,7 @@ README = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='lfinancial',
-    version='0.0.5',
+    version='0.0.6',
     author='zaneliu',
     long_description=README,
     author_email='lzy291980138@163.com',

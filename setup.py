@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='lfinancial',
-    version='0.0.6',
+    version='0.0.7',
     author='zaneliu',
     description='Generate financial test data',
     long_description=long_description,
@@ -18,7 +18,7 @@ setup(
     install_requires=[],
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: GNU License v2',
         'Operating System :: OS Independent',
     ],
 )

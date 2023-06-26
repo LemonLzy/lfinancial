@@ -1,5 +1,4 @@
 import random
-import re
 import string
 
 
@@ -9,7 +8,9 @@ class IDCodeGenerator:
         self.default_country = {
             "SSN": "US",
             "IDCard": "CN",
-            "Passport": "CN"
+            "Passport": "CN",
+            "NRIC": "SG",
+            "MyNumber": "JP"
             # 其他证件类型和默认国家的映射关系
         }
 
@@ -24,6 +25,10 @@ class IDCodeGenerator:
                 doc_type = IDCard(country)
             case "Passport":
                 doc_type = Passport(country)
+            case "NRIC":
+                doc_type = NRIC(country)
+            case "MyNumber":
+                doc_type = MyNumber(country)
             case _:
                 raise ValueError(f"Unsupported document type: {document_type}.")
 
@@ -37,7 +42,7 @@ class DocumentType:
     def generate_id(self):
         raise NotImplementedError("Subclasses must implement generate_id method.")
 
-    def check_code(self, id_code: str):
+    def check_code(self, *args):
         raise NotImplementedError("Subclasses must implement check_code method.")
 
 
@@ -124,3 +129,68 @@ class Passport(DocumentType):
         other = random.randint(0000000, 9999999)
 
         return f"{first}{second}{other}"
+
+
+class NRIC(DocumentType):
+    def generate_id(self):
+        match self.country:
+            case "SG":
+                return self._generate_sg_nric()
+            case _:
+                raise ValueError(f"Unsupported country: {self.country} for NRIC generation.")
+
+    def _generate_sg_nric(self):
+        first_alpha = random.choice(['S', 'T', 'F', 'G'])
+        second_alpha = random.choice(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'Z', 'J'])
+        nric_digits = [random.randint(0, 9) for i in range(7)]
+        check_code = self.check_code(first_alpha, second_alpha, nric_digits)
+        nric = f"{first_alpha}{second_alpha}" + "".join(map(str, nric_digits)) + f"{check_code}"
+        return nric
+
+    def check_code(self, first_alpha, second_alpha, digits):
+        weight = [2, 7, 6, 5, 4, 3, 2]
+        alpha_values = {
+            'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5,
+            'F': 6, 'G': 7, 'H': 8, 'I': 9, 'Z': 10,
+            'J': 11
+        }
+        # Convert the alpha values to their corresponding numbers
+        first_alpha_num = 0 if first_alpha in ['S', 'T'] else alpha_values[first_alpha]
+        second_alpha_num = alpha_values[second_alpha]
+        # Calculate the weighted sum
+        weighted_sum = (first_alpha_num * 2) + (second_alpha_num * 7)
+        for i in range(len(digits)):
+            weighted_sum += digits[i] * weight[i]
+        # Calculate the check code
+        remainder = weighted_sum % 11
+        if remainder == 0:
+            return "0"
+        elif remainder == 1:
+            if first_alpha == 'S' or first_alpha == 'T':
+                return "A"
+            else:
+                return "B"
+        else:
+            return str(11 - remainder)
+
+
+class MyNumber(DocumentType):
+    q = [6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
+
+    def generate_id(self):
+        match self.country:
+            case "JP":
+                return self._generate_jp_my_number()
+            case _:
+                raise ValueError(f"Unsupported country: {self.country} for NRIC generation.")
+
+    def _generate_jp_my_number(self):
+        random_digits = [random.randint(0, 9) for _ in range(11)]
+        check_digit = self.check_code(random_digits)
+        random_digits.append(check_digit)
+        return ''.join(str(digit) for digit in random_digits)
+
+    def check_code(self, id_code):
+        sum_pnx_qn = sum(digit * self.q[i] for i, digit in enumerate(id_code))
+        mods = sum_pnx_qn % 11
+        return 0 if mods <= 1 else 11 - mods

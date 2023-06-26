@@ -1,14 +1,15 @@
-from setuptools import find_packages, setup
+from setuptools import setup
+from pathlib import Path
 
 excluded_packages = ["docs", "tests", "tests.*"]
-
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+here = Path(__file__).resolve().parent
+README = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='lfinancial',
     version='0.0.5',
     author='zaneliu',
+    long_description=README,
     author_email='lzy291980138@163.com',
     description='Generate financial test data',
     packages=['lfinancial'],

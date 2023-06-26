@@ -1,5 +1,16 @@
 LFinancial is a Python package that generates financial fake data.
 
+---
+```
+.-.    .----. .-. .-. .-.   .--.   .-. .-. .----. .-.   .--.   .-.    
+} |    } |__} { | |  \{ |  / {} \  |  \{ | | }`-' { |  / {} \  } |    
+} '--. } '_}  | } | }\  { /  /\  \ | }\  { | },-. | } /  /\  \ } '--. 
+`----' `--'   `-' `-' `-' `-'  `-' `-' `-' `----' `-' `-'  `-' `----' 
+```
+[![pypi](https://img.shields.io/pypi/v/lfinancial)](https://pypi.org/project/lfinancial/)
+
+---
+
 #### How to install?
 ```shell
 pip install lfinancial

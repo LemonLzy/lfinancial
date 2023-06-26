@@ -33,6 +33,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
 
+      - name: Run tests with coverage
+        run: |
+          coverage run -m pytest
+
+      - name: Generate coverage report
+        run: |
+          coverage report -m
+          coverage xml -o coverage.xml
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverage.xml
+
       - name: Build package
         run: python -m build
 

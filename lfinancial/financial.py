@@ -1,22 +1,34 @@
-from lfinancial.generators.document_type import IDCodeGenerator
+from lfinancial.factory import GeneratorFactory
 
 
 class Financial:
+    def __init__(self):
+        self.generator_factory = GeneratorFactory()
 
-    @staticmethod
-    def id_code(document_type, country=None):
-        return IDCodeGenerator().generate_id(document_type, country)
+    def generate(self, generator_name, country):
+        generator = self.generator_factory.create_generator(generator_name)
+        return generator.generate_id(generator_name, country)
+
+    def ssn(self, country=None):
+        return self.generate('SSN', country)
+
+    def id_card(self, country=None):
+        return self.generate('IDCard', country)
+
+    def passport(self, country=None):
+        return self.generate('Passport', country)
+
+    def nric(self, country=None):
+        return self.generate('NRIC', country)
+
+    def my_number(self, country=None):
+        return self.generate('MyNumber', country)
 
 
 if __name__ == '__main__':
     f = Financial()
-    print(f.id_code('SSN'))
-    print(f.id_code('SSN', 'US'))
-    print(f.id_code('IDCard'))
-    print(f.id_code('IDCard', 'CN'))
-    print(f.id_code('Passport'))
-    print(f.id_code('Passport', 'CN'))
-    print(f.id_code('NRIC'))
-    print(f.id_code('NRIC', 'SG'))
-    print(f.id_code('MyNumber'))
-    print(f.id_code('MyNumber', 'JP'))
+    print(f.ssn())
+    print(f.id_card())
+    print(f.passport())
+    print(f.nric())
+    print(f.my_number())

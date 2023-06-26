@@ -9,9 +9,9 @@ setup(
     name='lfinancial',
     version='0.0.6',
     author='zaneliu',
+    description='Generate financial test data',
     long_description=README,
     author_email='lzy291980138@163.com',
-    description='Generate financial test data',
     packages=['lfinancial'],
     install_requires=[],
     classifiers=[

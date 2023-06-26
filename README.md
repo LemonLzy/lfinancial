@@ -21,13 +21,20 @@ pip install lfinancial
 ```python
 from lfinancial import Financial
 
-
 f = Financial()
 
-f.id_code('SSN')
-f.id_code('SSN', 'US')
-f.id_code('IDCard', 'CN')
-f.id_code('Passport')
-f.id_code('NRIC')
-f.id_code('MyNumber')
+f.ssn()
+# 582-94-2808
+
+f.id_card()
+# 488258196409087762
+
+f.passport()
+# EG4130431
+
+f.nric()
+# SD44949622
+
+f.my_number()
+# 399495927695
 ```

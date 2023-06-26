@@ -9,6 +9,6 @@ financial = Financial()
 class TestSSN(TestCase):
 
     def test_generate_id(self):
-        ssn = financial.id_code("SSN")
+        ssn = financial.ssn()
         assert len(ssn) == 11
         assert SSN._is_valid_ssn(ssn)

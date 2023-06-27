@@ -1,4 +1,4 @@
-LFinancial is a Python package that generates financial fake data.
+lfinancial is a Python package that generates financial fake data.
 
 ---
 ```
@@ -37,4 +37,19 @@ f.nric()
 
 f.my_number()
 # 399495927695
+
+f.cn_name()
+# 于诚玲
+
+f.first_name()
+# Cakadiq
+
+f.middle_name()
+# Baviv
+
+f.last_name()
+# Hucacuqa
+
+f.kana_name()
+# ハジ
 ```

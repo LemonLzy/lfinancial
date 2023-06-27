@@ -14,7 +14,7 @@ class IDCodeGenerator:
             # 其他证件类型和默认国家的映射关系
         }
 
-    def generate_id(self, document_type, country=None):
+    def gen(self, document_type, country=None):
         if country is None:
             country = self.default_country.get(document_type)
 
@@ -89,11 +89,11 @@ class IDCard(DocumentType):
         # 生成年份(4位数)
         year = str(random.randint(1949, 2022))
         # 生成月份(2位数)
-        month = str(random.randint(1, 12)).rjust(2, '0')
+        month = str(random.randint(1, 12)).rjust(2, "0")
         # 生成日期(2位数)
-        day = str(random.randint(1, 28)).rjust(2, '0')
+        day = str(random.randint(1, 28)).rjust(2, "0")
         # 生成顺序码(3位数)
-        order = str(random.randint(1, 999)).rjust(3, '0')
+        order = str(random.randint(1, 999)).rjust(3, "0")
         # 生成校验码(1位数)
         check_code = self.check_code(region_code + year + month + day + order)
         # 拼接身份证号码并返回
@@ -103,7 +103,7 @@ class IDCard(DocumentType):
         # 系数列表
         factor_list = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
         # 校验码列表
-        check_code_list = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2']
+        check_code_list = ["1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"]
         # 根据前17位计算出校验码
         check_code = 0
         for i in range(len(id_code)):
@@ -140,8 +140,8 @@ class NRIC(DocumentType):
                 raise ValueError(f"Unsupported country: {self.country} for NRIC generation.")
 
     def _generate_sg_nric(self):
-        first_alpha = random.choice(['S', 'T', 'F', 'G'])
-        second_alpha = random.choice(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'Z', 'J'])
+        first_alpha = random.choice(["S", "T", "F", "G"])
+        second_alpha = random.choice(["A", "B", "C", "D", "E", "F", "G", "H", "I", "Z", "J"])
         nric_digits = [random.randint(0, 9) for i in range(7)]
         check_code = self.check_code(first_alpha, second_alpha, nric_digits)
         nric = f"{first_alpha}{second_alpha}" + "".join(map(str, nric_digits)) + f"{check_code}"
@@ -150,12 +150,12 @@ class NRIC(DocumentType):
     def check_code(self, first_alpha, second_alpha, digits):
         weight = [2, 7, 6, 5, 4, 3, 2]
         alpha_values = {
-            'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5,
-            'F': 6, 'G': 7, 'H': 8, 'I': 9, 'Z': 10,
-            'J': 11
+            "A": 1, "B": 2, "C": 3, "D": 4, "E": 5,
+            "F": 6, "G": 7, "H": 8, "I": 9, "Z": 10,
+            "J": 11
         }
         # Convert the alpha values to their corresponding numbers
-        first_alpha_num = 0 if first_alpha in ['S', 'T'] else alpha_values[first_alpha]
+        first_alpha_num = 0 if first_alpha in ["S", "T"] else alpha_values[first_alpha]
         second_alpha_num = alpha_values[second_alpha]
         # Calculate the weighted sum
         weighted_sum = (first_alpha_num * 2) + (second_alpha_num * 7)
@@ -166,7 +166,7 @@ class NRIC(DocumentType):
         if remainder == 0:
             return "0"
         elif remainder == 1:
-            if first_alpha == 'S' or first_alpha == 'T':
+            if first_alpha == "S" or first_alpha == "T":
                 return "A"
             else:
                 return "B"
@@ -188,7 +188,7 @@ class MyNumber(DocumentType):
         random_digits = [random.randint(0, 9) for _ in range(11)]
         check_digit = self.check_code(random_digits)
         random_digits.append(check_digit)
-        return ''.join(str(digit) for digit in random_digits)
+        return "".join(str(digit) for digit in random_digits)
 
     def check_code(self, id_code):
         sum_pnx_qn = sum(digit * self.q[i] for i, digit in enumerate(id_code))

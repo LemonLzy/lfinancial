@@ -39,6 +39,12 @@ class Financial:
     def kana_name(self, country=None):
         return self._generate("kana_name", country)
 
+    def cellphone(self, country=None):
+        return self._generate("cellphone", country)
+
+    def area_code(self, country=None):
+        return self._generate("area_code", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -52,3 +58,5 @@ if __name__ == '__main__':
     print(f.last_name())
     print(f.kana_name())
     print(f.cn_name())
+    print(f.cellphone())
+    print(f.area_code())

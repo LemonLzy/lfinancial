@@ -32,22 +32,22 @@ class IDCodeGenerator:
             case _:
                 raise ValueError(f"Unsupported document type: {document_type}.")
 
-        return doc_type.generate_id()
+        return doc_type.gen()
 
 
 class DocumentType:
     def __init__(self, country):
         self.country = country
 
-    def generate_id(self):
-        raise NotImplementedError("Subclasses must implement generate_id method.")
+    def gen(self):
+        raise NotImplementedError("Subclasses must implement gen method.")
 
     def check_code(self, *args):
         raise NotImplementedError("Subclasses must implement check_code method.")
 
 
 class SSN(DocumentType):
-    def generate_id(self):
+    def gen(self):
         match self.country:
             case "US":
                 return self._generate_us_ssn()
@@ -76,7 +76,7 @@ class SSN(DocumentType):
 
 
 class IDCard(DocumentType):
-    def generate_id(self):
+    def gen(self):
         match self.country:
             case "CN":
                 return self._generate_cn_id()
@@ -113,12 +113,12 @@ class IDCard(DocumentType):
 
 
 class Passport(DocumentType):
-    def generate_id(self):
+    def gen(self):
         match self.country:
             case "CN":
                 return self._generate_cn_passport()
             case _:
-                raise ValueError(f"Unsupported country: {self.country} for IDCard generation.")
+                raise ValueError(f"Unsupported country: {self.country} for Passport generation.")
 
     def _generate_cn_passport(self):
         """
@@ -132,7 +132,7 @@ class Passport(DocumentType):
 
 
 class NRIC(DocumentType):
-    def generate_id(self):
+    def gen(self):
         match self.country:
             case "SG":
                 return self._generate_sg_nric()
@@ -177,12 +177,12 @@ class NRIC(DocumentType):
 class MyNumber(DocumentType):
     q = [6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
-    def generate_id(self):
+    def gen(self):
         match self.country:
             case "JP":
                 return self._generate_jp_my_number()
             case _:
-                raise ValueError(f"Unsupported country: {self.country} for NRIC generation.")
+                raise ValueError(f"Unsupported country: {self.country} for MyNumber generation.")
 
     def _generate_jp_my_number(self):
         random_digits = [random.randint(0, 9) for _ in range(11)]

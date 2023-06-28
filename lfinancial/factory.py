@@ -1,5 +1,6 @@
-from lfinancial.generators.document_type import IDCodeGenerator
+from lfinancial.generators.document import IDCodeGenerator
 from lfinancial.generators.name import NameGenerator
+from lfinancial.generators.phone import PhoneGenerator
 
 
 class GeneratorFactory:
@@ -14,7 +15,9 @@ class GeneratorFactory:
             "middle_name": NameGenerator(),
             "last_name": NameGenerator(),
             "cn_name": NameGenerator(),
-            "kana_name": NameGenerator()
+            "kana_name": NameGenerator(),
+            "cellphone": PhoneGenerator(),
+            "area_code": PhoneGenerator(),
         }
 
     def register_generator(self, name, generator):

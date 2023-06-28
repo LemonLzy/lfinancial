@@ -52,4 +52,10 @@ f.last_name()
 
 f.kana_name()
 # ハジ
+
+f.cellphone()
+# 13851695115
+
+f.area_code()
+# +86
 ```

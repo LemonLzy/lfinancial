@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from lfinancial import Financial
-from lfinancial.generators.document_type import SSN
+from lfinancial.generators.document import SSN
 
 financial = Financial()
 

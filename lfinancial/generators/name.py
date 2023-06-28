@@ -27,26 +27,26 @@ class NameGenerator:
             case "cn_name":
                 name_type = CNName(country)
             case _:
-                raise ValueError(f"Unsupported document type: {name_type}.")
+                raise ValueError(f"Unsupported name type: {name_type}.")
 
-        return name_type.gen_name()
+        return name_type.gen()
 
 
 class NameType:
     def __init__(self, country):
         self.country = country
 
-    def gen_name(self):
-        raise NotImplementedError("Subclasses must implement generate_id method.")
+    def gen(self):
+        raise NotImplementedError("Subclasses must implement gen method.")
 
 
 class EnName(NameType):
-    def gen_name(self):
+    def gen(self):
         match self.country:
             case "US":
                 return self._generate_en_name()
             case _:
-                raise ValueError(f"Unsupported country: {self.country} for SSN generation.")
+                raise ValueError(f"Unsupported country: {self.country} for EnName generation.")
 
     def _generate_en_name(self):
         vowels = "aeiou"
@@ -64,12 +64,12 @@ class EnName(NameType):
 
 
 class CNName(NameType):
-    def gen_name(self):
+    def gen(self):
         match self.country:
             case "CN":
                 return self._generate_cn_name()
             case _:
-                raise ValueError(f"Unsupported country: {self.country} for SSN generation.")
+                raise ValueError(f"Unsupported country: {self.country} for CNName generation.")
 
     def _generate_cn_name(self):
         last_name = ["赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋", "沈", "韩", "杨",
@@ -91,12 +91,12 @@ class CNName(NameType):
 
 
 class KanaName(NameType):
-    def gen_name(self):
+    def gen(self):
         match self.country:
             case "JP":
                 return self._generate_kana_name()
             case _:
-                raise ValueError(f"Unsupported country: {self.country} for SSN generation.")
+                raise ValueError(f"Unsupported country: {self.country} for KanaName generation.")
 
     def _generate_kana_name(self):
         katakana = [chr(i) for i in range(0x30a0, 0x30ff + 1)]

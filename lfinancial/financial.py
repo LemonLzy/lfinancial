@@ -45,6 +45,9 @@ class Financial:
     def area_code(self, country=None):
         return self._generate("area_code", country)
 
+    def high_risk_country(self, country=None):
+        return self._generate("high_risk", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -60,3 +63,4 @@ if __name__ == '__main__':
     print(f.cn_name())
     print(f.cellphone())
     print(f.area_code())
+    print(f.high_risk_country())

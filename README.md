@@ -58,4 +58,7 @@ f.cellphone()
 
 f.area_code()
 # +86
+
+f.high_risk_country()
+# MA
 ```

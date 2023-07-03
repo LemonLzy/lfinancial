@@ -4,7 +4,7 @@ from enum import Enum
 from lfinancial.generators.const import Country
 
 
-class CountryCode(Enum):
+class PhoneCode(Enum):
     CN = "+86"  # 中国
     US = "+1"  # 美国
     JP = "+81"  # 日本
@@ -141,7 +141,7 @@ class AreaCode(PhoneType):
 
         if isinstance(country_code, str):
             try:
-                return CountryCode[country_code].value
+                return PhoneCode[country_code].value
             except KeyError:
                 return None
 

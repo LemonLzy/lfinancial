@@ -1,5 +1,6 @@
 from lfinancial.generators.contry import CountryGenerator
 from lfinancial.generators.document import IDCodeGenerator
+from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
 from lfinancial.generators.phone import PhoneGenerator
 
@@ -20,6 +21,7 @@ class GeneratorFactory:
             "cellphone": PhoneGenerator(),
             "area_code": PhoneGenerator(),
             "high_risk": CountryGenerator(),
+            "email": EmailGenerator(),
         }
 
     def register_generator(self, name, generator):

@@ -48,6 +48,9 @@ class Financial:
     def high_risk_country(self, country=None):
         return self._generate("high_risk", country)
 
+    def email(self, suffix=None):
+        return self._generate("email", suffix)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -64,3 +67,4 @@ if __name__ == '__main__':
     print(f.cellphone())
     print(f.area_code())
     print(f.high_risk_country())
+    print(f.email())

@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='lfinancial',
-    version='0.1.4',
+    version='0.1.5',
     author='zaneliu',
     description='Generate financial test data',
     long_description=long_description,

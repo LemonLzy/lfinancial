@@ -61,4 +61,7 @@ f.area_code()
 
 f.high_risk_country()
 # MA
+
+f.email()
+# q0o58mkgq3@gmail.com
 ```

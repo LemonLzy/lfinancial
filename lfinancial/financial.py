@@ -51,6 +51,9 @@ class Financial:
     def email(self, suffix=None):
         return self._generate("email", suffix)
 
+    def bank(self, country=None):
+        return self._generate("bank", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -68,3 +71,4 @@ if __name__ == '__main__':
     print(f.area_code())
     print(f.high_risk_country())
     print(f.email())
+    print(f.bank())

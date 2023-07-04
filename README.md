@@ -64,4 +64,7 @@ f.high_risk_country()
 
 f.email()
 # q0o58mkgq3@gmail.com
+
+f.bank()
+# BANK OF CHINA (HONG KONG) LIMITED
 ```

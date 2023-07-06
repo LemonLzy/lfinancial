@@ -14,7 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     readme="README.md",
     author_email='lzy291980138@163.com',
-    packages=['lfinancial'],
+    packages=['lfinancial', 'generators', 'tests'],
     install_requires=[],
     classifiers=[
         'Programming Language :: Python :: 3',

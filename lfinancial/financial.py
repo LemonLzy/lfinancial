@@ -54,6 +54,9 @@ class Financial:
     def bank(self, country=None):
         return self.__generate("bank", country)
 
+    def currency(self, country=None):
+        return self.__generate("currency", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -72,3 +75,4 @@ if __name__ == '__main__':
     print(f.high_risk_country())
     print(f.email())
     print(f.bank())
+    print(f.currency())

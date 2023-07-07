@@ -1,5 +1,6 @@
 from lfinancial.generators.bank import BankGenerator
 from lfinancial.generators.contry import CountryGenerator
+from lfinancial.generators.currency import CurrencyGenerator
 from lfinancial.generators.document import IDCodeGenerator
 from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
@@ -24,6 +25,7 @@ class GeneratorFactory:
             "high_risk": CountryGenerator(),
             "email": EmailGenerator(),
             "bank": BankGenerator(),
+            "currency": CurrencyGenerator(),
         }
 
     def register_generator(self, name, generator):

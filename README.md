@@ -67,4 +67,7 @@ f.email()
 
 f.bank()
 # BANK OF CHINA (HONG KONG) LIMITED
+
+f.currency()
+# CNY
 ```

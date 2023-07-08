@@ -76,4 +76,7 @@ f.swift_code()
 
 f.stock_exchange()
 # Hong Kong Stock Exchange
+
+f.ticker_symbol()
+# AAPL
 ```

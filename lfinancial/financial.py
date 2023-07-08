@@ -63,6 +63,9 @@ class Financial:
     def stock_exchange(self, country=None):
         return self.__generate("stock_exchange", country)
 
+    def ticker_symbol(self, country=None):
+        return self.__generate("ticker_symbol", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -84,3 +87,4 @@ if __name__ == '__main__':
     print(f.currency())
     print(f.swift_code())
     print(f.stock_exchange())
+    print(f.ticker_symbol())

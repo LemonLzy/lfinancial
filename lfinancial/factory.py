@@ -30,6 +30,7 @@ class GeneratorFactory:
             "currency": CurrencyGenerator(),
             "swift_code": SwiftGenerator(),
             "stock_exchange": StockGenerator(),
+            "ticker_symbol": StockGenerator(),
         }
 
     def register_generator(self, name, generator):

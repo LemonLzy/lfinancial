@@ -5,7 +5,12 @@ class StockGenerator:
 
     def __init__(self):
         self.default_country = {
-            "stock_exchange": "US"
+            "stock_exchange":
+                "US",
+
+            "ticker_symbol":
+                "US"
+
         }
 
     def gen(self, stock_type, country):
@@ -14,11 +19,14 @@ class StockGenerator:
 
         match stock_type:
             case "stock_exchange":
+
                 stock_type = StockExchange(country)
-            # case "ticker_symbol":
-            #     stock_type = TickerSymbol(country)
+            case "ticker_symbol":
+
+                stock_type = TickerSymbol(country)
             case _:
-                raise ValueError(f"Unsupported name type: {stock_type}.")
+                raise ValueError(f"U"
+                                 f"nsupported name type: {stock_type}.")
 
         return stock_type.gen()
 
@@ -32,7 +40,6 @@ class StockType:
 
 
 class StockExchange(StockType):
-
     """
     https://en.wikipedia.org/wiki/List_of_stock_exchanges
     """
@@ -62,3 +69,101 @@ class StockExchange(StockType):
 
     def gen(self):
         return random.choice(self.stock_exchanges)
+
+
+class TickerSymbol(StockType):
+    ticker_symbols = (
+        "AAPL",
+        "ABT",
+        "ACLS",
+        "ACM",
+        "ACN",
+        "ADBE",
+        "AKAM",
+        "AMD",
+        "AMGN",
+        "AMZN",
+        "ATHM",
+        "ATI",
+        "BABA",
+        "BAX",
+        "BIDU",
+        "BILI",
+        "BMY",
+        "CMCM",
+        "CPB",
+        "CRM",
+        "CSCO",
+        "CTRP",
+        "CTSH",
+        "CVS",
+        "DCM",
+        "DELL",
+        "DOYU",
+        "EBAY",
+        "EDU",
+        "EQIX",
+        "ERIC",
+        "FUTU",
+        "GLW",
+        "GOOG",
+        "GRPN",
+        "HPQ",
+        "IBM",
+        "INFA",
+        "INTC",
+        "JBL",
+        "JD",
+        "JNJ",
+        "JNPR",
+        "KLAC",
+        "KO",
+        "MCD",
+        "MCHP",
+        "MDT",
+        "MO",
+        "MRK",
+        "MSFT",
+        "MSI",
+        "NFLX",
+        "NOK",
+        "NOW",
+        "NTAP",
+        "NTES",
+        "NVDA",
+        "ORCL",
+        "PDD",
+        "PEP",
+        "PFE",
+        "QCOM",
+        "QFIN",
+        "QTT",
+        "S",
+        "SAP",
+        "SBUX",
+        "SE",
+        "SMAR",
+        "STX",
+        "SYMC",
+        "T",
+        "TCEHY",
+        "TDS",
+        "TER",
+        "TRIP",
+        "TXN",
+        "TYL",
+        "UNH",
+        "VIPS",
+        "VMW",
+        "VOD",
+        "VRSN",
+        "VZ",
+        "WUBA",
+        "YELP",
+        "YNDX",
+        "YUMC",
+        "YY",
+    )
+
+    def gen(self):
+        return random.choice(self.ticker_symbols)

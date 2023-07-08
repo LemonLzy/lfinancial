@@ -73,4 +73,7 @@ f.currency()
 
 f.swift_code()
 # ABOCCNBJ040
+
+f.stock_exchange()
+# Hong Kong Stock Exchange
 ```

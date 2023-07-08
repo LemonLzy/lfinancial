@@ -70,4 +70,7 @@ f.bank()
 
 f.currency()
 # CNY
+
+f.swift_code()
+# ABOCCNBJ040
 ```

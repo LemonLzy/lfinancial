@@ -1,0 +1,92 @@
+import random
+
+
+class SwiftGenerator:
+    """
+    https://www.theswiftcodes.com/
+    """
+    swift = (
+        "ABBYGB2L",
+        "ABNASG2A",
+        "ABOCCNBJ040",
+        "ACLRAUSS",
+        "ANZBAU3MCFX",
+        "AONPGB2L",
+        "ARRSRU2K",
+        "AVJSRUMM",
+        "BAGIGB22",
+        "BARCUS3M",
+        "BCANCAW2",
+        "BKCHAU2AADL",
+        "BKCHCNBJ500",
+        "BKIDGB2LGLA",
+        "BKTWSGSG",
+        "BNPAAU2S200",
+        "BNPASGSGONG",
+        "BOFAGB2UTSY",
+        "BOFASG3XJVC",
+        "BUKBGB22BSL",
+        "BUKBGB22BSL",
+        "CCBGCNBJ",
+        "CHASCATTCTS",
+        "CIBKCNBJ",
+        "CITIDE55",
+        "CITISGSGCC1",
+        "CITIUS33CHI",
+        "CLOKRUMM",
+        "CLPTUS44",
+        "COMMCNSHLYN",
+        "CPBKGB22TGT",
+        "CSCHUS66",
+        "CSFBSGSX",
+        "CTBAAU2S700",
+        "CUCXCATTWPG",
+        "DBSSSGSG",
+        "DCAGDE6S",
+        "DEUTDEDB390",
+        "DEUTSGSGDIA",
+        "FAEBRU8V",
+        "FMBKDEMM617",
+        "HBUKGB4BRTN",
+        "HKBCCATT",
+        "HXJJCNB2",
+        "HYVEDEMMCAR",
+        "IRBARU22MAH",
+        "ITEHRU2P",
+        "LEVBRU55",
+        "LUMIUS3NMIA",
+        "MLCICATT",
+        "MLEQAU2SMLT",
+        "MRMDUS33",
+        "MSBKRUMM",
+        "MSFFDEFXCNV",
+        "MSNYUS33CTR",
+        "NATAAU3308D",
+        "NOSCCATMCMS",
+        "NOSCCATTHFX",
+        "NWBKGB2LLDS",
+        "PMFAUS66",
+        "PNBPCATT",
+        "PNBPDEFF",
+        "PNBPSGSG",
+        "RETLRUMM",
+        "RGARUS4A",
+        "ROYCCAT2CIC",
+        "ROYCSGSG",
+        "SABRRU66",
+        "SBOSDEMXFEX",
+        "SCHWDESSTGT",
+        "SSALAU2X",
+        "UBSWCATT",
+        "UBSWUS33SFO",
+        "VGRDAU3M",
+        "VOBADESS",
+        "WMALAU2S"
+    )
+
+    def gen(self, *args, **kwargs):
+        return random.choice(self.swift)
+
+
+if __name__ == "__main__":
+    print(SwiftGenerator().gen())

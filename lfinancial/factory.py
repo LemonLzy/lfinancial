@@ -5,6 +5,7 @@ from lfinancial.generators.document import IDCodeGenerator
 from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
 from lfinancial.generators.phone import PhoneGenerator
+from lfinancial.generators.stock import StockGenerator
 from lfinancial.generators.swift import SwiftGenerator
 
 
@@ -28,6 +29,7 @@ class GeneratorFactory:
             "bank": BankGenerator(),
             "currency": CurrencyGenerator(),
             "swift_code": SwiftGenerator(),
+            "stock_exchange": StockGenerator(),
         }
 
     def register_generator(self, name, generator):

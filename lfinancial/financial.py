@@ -60,6 +60,9 @@ class Financial:
     def swift_code(self, country=None):
         return self.__generate("swift_code", country)
 
+    def stock_exchange(self, country=None):
+        return self.__generate("stock_exchange", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -80,3 +83,4 @@ if __name__ == '__main__':
     print(f.bank())
     print(f.currency())
     print(f.swift_code())
+    print(f.stock_exchange())

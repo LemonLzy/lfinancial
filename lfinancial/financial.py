@@ -66,6 +66,9 @@ class Financial:
     def ticker_symbol(self, country=None):
         return self.__generate("ticker_symbol", country)
 
+    def tz_identifier(self, country=None):
+        return self.__generate("tz_identifier", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -88,3 +91,4 @@ if __name__ == '__main__':
     print(f.swift_code())
     print(f.stock_exchange())
     print(f.ticker_symbol())
+    print(f.tz_identifier())

@@ -79,4 +79,7 @@ f.stock_exchange()
 
 f.ticker_symbol()
 # AAPL
+
+f.tz_identifier()
+# Asia/Baku
 ```

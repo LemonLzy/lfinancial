@@ -82,4 +82,7 @@ f.ticker_symbol()
 
 f.tz_identifier()
 # Asia/Baku
+
+f.locale()
+# zh-CN
 ```

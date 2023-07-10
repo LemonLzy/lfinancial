@@ -69,6 +69,9 @@ class Financial:
     def tz_identifier(self, country=None):
         return self.__generate("tz_identifier", country)
 
+    def locale(self, country=None):
+        return self.__generate("locale", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -92,3 +95,4 @@ if __name__ == '__main__':
     print(f.stock_exchange())
     print(f.ticker_symbol())
     print(f.tz_identifier())
+    print(f.locale())

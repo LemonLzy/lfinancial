@@ -5,75 +5,75 @@ class Financial:
     def __init__(self):
         self._generator_factory = GeneratorFactory()
 
-    def __generate(self, generator_name, country):
+    def _generate(self, generator_name, country):
         generator = self._generator_factory.create_generator(generator_name)
         return generator.gen(generator_name, country)
 
     def ssn(self, country=None):
-        return self.__generate("SSN", country)
+        return self._generate("SSN", country)
 
     def id_card(self, country=None):
-        return self.__generate("IDCard", country)
+        return self._generate("IDCard", country)
 
     def passport(self, country=None):
-        return self.__generate("Passport", country)
+        return self._generate("Passport", country)
 
     def nric(self, country=None):
-        return self.__generate("NRIC", country)
+        return self._generate("NRIC", country)
 
     def my_number(self, country=None):
-        return self.__generate("MyNumber", country)
+        return self._generate("MyNumber", country)
 
     def first_name(self, country=None):
-        return self.__generate("first_name", country)
+        return self._generate("first_name", country)
 
     def middle_name(self, country=None):
-        return self.__generate("middle_name", country)
+        return self._generate("middle_name", country)
 
     def last_name(self, country=None):
-        return self.__generate("last_name", country)
+        return self._generate("last_name", country)
 
     def cn_name(self, country=None):
-        return self.__generate("cn_name", country)
+        return self._generate("cn_name", country)
 
     def kana_name(self, country=None):
-        return self.__generate("kana_name", country)
+        return self._generate("kana_name", country)
 
     def cellphone(self, country=None):
-        return self.__generate("cellphone", country)
+        return self._generate("cellphone", country)
 
     def area_code(self, country=None):
-        return self.__generate("area_code", country)
+        return self._generate("area_code", country)
 
     def high_risk_country(self, country=None):
-        return self.__generate("high_risk", country)
+        return self._generate("high_risk", country)
 
     def email(self, suffix=None):
-        return self.__generate("email", suffix)
+        return self._generate("email", suffix)
 
     def bank(self, country=None):
-        return self.__generate("bank", country)
+        return self._generate("bank", country)
 
     def currency(self, country=None):
-        return self.__generate("currency", country)
+        return self._generate("currency", country)
 
     def swift_code(self, country=None):
-        return self.__generate("swift_code", country)
+        return self._generate("swift_code", country)
 
     def stock_exchange(self, country=None):
-        return self.__generate("stock_exchange", country)
+        return self._generate("stock_exchange", country)
 
     def ticker_symbol(self, country=None):
-        return self.__generate("ticker_symbol", country)
+        return self._generate("ticker_symbol", country)
 
     def tz_identifier(self, country=None):
-        return self.__generate("tz_identifier", country)
+        return self._generate("tz_identifier", country)
 
     def locale(self, country=None):
-        return self.__generate("locale", country)
+        return self._generate("locale", country)
 
     def product(self, country=None):
-        return self.__generate("product", country)
+        return self._generate("product", country)
 
 
 if __name__ == '__main__':

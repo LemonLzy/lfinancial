@@ -85,4 +85,7 @@ f.tz_identifier()
 
 f.locale()
 # zh-CN
+
+f.product()
+# Shares
 ```

@@ -5,12 +5,9 @@ class StockGenerator:
 
     def __init__(self):
         self.default_country = {
-            "stock_exchange":
-                "US",
-
-            "ticker_symbol":
-                "US"
-
+            "stock_exchange": "US",
+            "ticker_symbol": "US",
+            "product": "US"
         }
 
     def gen(self, stock_type, country):
@@ -19,14 +16,13 @@ class StockGenerator:
 
         match stock_type:
             case "stock_exchange":
-
                 stock_type = StockExchange(country)
             case "ticker_symbol":
-
                 stock_type = TickerSymbol(country)
+            case "product":
+                stock_type = TradeProduct(country)
             case _:
-                raise ValueError(f"U"
-                                 f"nsupported name type: {stock_type}.")
+                raise ValueError(f"Unsupported name type: {stock_type}.")
 
         return stock_type.gen()
 
@@ -167,3 +163,34 @@ class TickerSymbol(StockType):
 
     def gen(self):
         return random.choice(self.ticker_symbols)
+
+
+class TradeProduct(StockType):
+    product = (
+        "A-shares",
+        "ADR",
+        "Bond",
+        "Business Trusts",
+        "Callable Bull/Bear Contract",
+        "Closed-end Funds",
+        "Crypto",
+        "DLCs",
+        "ETFs",
+        "Foreign Exchange Futures",
+        "Fractional Shares",
+        "Futures",
+        "Index",
+        "Inside Certificate",
+        "Leveraged Foreign Exchange",
+        "Preference Shares",
+        "REITs",
+        "Share Price Index Futures",
+        "Shares",
+        "Stock Index Option",
+        "Stock Option",
+        "Trusts",
+        "Warrants"
+    )
+
+    def gen(self):
+        return random.choice(self.product)

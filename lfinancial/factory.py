@@ -6,7 +6,7 @@ from lfinancial.generators.locale import LocaleGenerator
 from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
 from lfinancial.generators.phone import PhoneGenerator
-from lfinancial.generators.stock import StockGenerator
+from lfinancial.generators.stock import StockGenerator, TradeProduct
 from lfinancial.generators.swift import SwiftGenerator
 from lfinancial.generators.timezone import TimeZoneGenerator
 
@@ -35,6 +35,7 @@ class GeneratorFactory:
             "ticker_symbol": StockGenerator(),
             "tz_identifier": TimeZoneGenerator(),
             "locale": LocaleGenerator(),
+            "product": StockGenerator(),
         }
 
     def register_generator(self, name, generator):

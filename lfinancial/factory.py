@@ -2,6 +2,7 @@ from lfinancial.generators.bank import BankGenerator
 from lfinancial.generators.contry import CountryGenerator
 from lfinancial.generators.currency import CurrencyGenerator
 from lfinancial.generators.document import IDCodeGenerator
+from lfinancial.generators.gender import GenderGenerator
 from lfinancial.generators.locale import LocaleGenerator
 from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
@@ -36,6 +37,7 @@ class GeneratorFactory:
             "tz_identifier": TimeZoneGenerator(),
             "locale": LocaleGenerator(),
             "product": StockGenerator(),
+            "gender": GenderGenerator(),
         }
 
     def register_generator(self, name, generator):

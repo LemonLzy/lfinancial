@@ -75,6 +75,9 @@ class Financial:
     def product(self, country=None):
         return self.__generate("product", country)
 
+    def gender(self, country=None):
+        return self.__generate("gender", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -100,3 +103,4 @@ if __name__ == '__main__':
     print(f.tz_identifier())
     print(f.locale())
     print(f.product())
+    print(f.gender())

@@ -88,4 +88,7 @@ f.locale()
 
 f.product()
 # Shares
+
+f.gender()
+# Cis Man
 ```

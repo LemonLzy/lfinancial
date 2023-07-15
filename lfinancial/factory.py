@@ -3,6 +3,7 @@ from lfinancial.generators.contry import CountryGenerator
 from lfinancial.generators.currency import CurrencyGenerator
 from lfinancial.generators.document import IDCodeGenerator
 from lfinancial.generators.gender import GenderGenerator
+from lfinancial.generators.industry import IndustryGenerator
 from lfinancial.generators.locale import LocaleGenerator
 from lfinancial.generators.mail import EmailGenerator
 from lfinancial.generators.name import NameGenerator
@@ -38,6 +39,7 @@ class GeneratorFactory:
             "locale": LocaleGenerator(),
             "product": StockGenerator(),
             "gender": GenderGenerator(),
+            "industry": IndustryGenerator(),
         }
 
     def register_generator(self, name, generator):

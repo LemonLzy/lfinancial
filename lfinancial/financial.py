@@ -76,7 +76,10 @@ class Financial:
         return self._generate("product", country)
 
     def gender(self, country=None):
-        return self.__generate("gender", country)
+        return self._generate("gender", country)
+
+    def industry(self, country=None):
+        return self._generate("industry", country)
 
 
 if __name__ == '__main__':
@@ -104,3 +107,4 @@ if __name__ == '__main__':
     print(f.locale())
     print(f.product())
     print(f.gender())
+    print(f.industry())

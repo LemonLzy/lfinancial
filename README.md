@@ -91,4 +91,7 @@ f.product()
 
 f.gender()
 # Cis Man
+
+f.industry()
+# Software & Services
 ```

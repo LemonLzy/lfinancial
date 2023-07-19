@@ -94,4 +94,25 @@ f.gender()
 
 f.industry()
 # Software & Services
+
+f.CVD()
+# 252
+
+f.CVV()
+# 748
+
+f.CID()
+# 207
+
+f.CAV()
+# 459
+
+f.CVC()
+# 767
+
+f.CSC()
+# 3473
+
+f.CVN()
+# 541
 ```

@@ -1,4 +1,5 @@
 from lfinancial.generators.bank import BankGenerator
+from lfinancial.generators.card import CardGenerator
 from lfinancial.generators.contry import CountryGenerator
 from lfinancial.generators.currency import CurrencyGenerator
 from lfinancial.generators.document import IDCodeGenerator
@@ -40,6 +41,13 @@ class GeneratorFactory:
             "product": StockGenerator(),
             "gender": GenderGenerator(),
             "industry": IndustryGenerator(),
+            "CSC": CardGenerator(),
+            "CID": CardGenerator(),
+            "CVC": CardGenerator(),
+            "CAV": CardGenerator(),
+            "CVV": CardGenerator(),
+            "CVD": CardGenerator(),
+            "CVN": CardGenerator(),
         }
 
     def register_generator(self, name, generator):

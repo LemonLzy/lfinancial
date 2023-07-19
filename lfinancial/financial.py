@@ -81,6 +81,27 @@ class Financial:
     def industry(self, country=None):
         return self._generate("industry", country)
 
+    def CSC(self, country=None):
+        return self._generate("CSC", country)
+
+    def CID(self, country=None):
+        return self._generate("CID", country)
+
+    def CVC(self, country=None):
+        return self._generate("CVC", country)
+
+    def CAV(self, country=None):
+        return self._generate("CAV", country)
+
+    def CVV(self, country=None):
+        return self._generate("CVV", country)
+
+    def CVD(self, country=None):
+        return self._generate("CVD", country)
+
+    def CVN(self, country=None):
+        return self._generate("CVN", country)
+
 
 if __name__ == '__main__':
     f = Financial()
@@ -108,3 +129,11 @@ if __name__ == '__main__':
     print(f.product())
     print(f.gender())
     print(f.industry())
+    print(f.CVD())
+    print(f.CVV())
+    print(f.CID())
+    print(f.CAV())
+    print(f.CVC())
+    print(f.CSC())
+    print(f.CVN())
+
